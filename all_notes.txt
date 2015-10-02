@@ -1,0 +1,1816 @@
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+****** Everything between these headers is from the Nano Degree courses *******
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+
+*
+*
+*
+*
+*
+********************************** PROJECT 1 **********************************
+*
+*
+*
+*
+*
+
+Check the various files in P1 folder. No additonal notes.
+
+*
+*
+*
+*
+*
+********************************** PROJECT 2 **********************************
+*
+*
+*
+*
+*
+
+### JS General Notes ###
+
+- console.log() is like a print statement for the console.
+- window.alert() creates a pop-up window
+- innerHTML writes new value to a given element. 
+  Example: document.getElementById("demo").innerHTML = 5 + 6;
+- document.write() writes the output to the document. 
+  DELETES all existing html in that div or tag.
+- [string].replace([old],[new]) replaces one string with 
+  another.
+- [string].slice() will take a portion of a string. Use the
+  -N operator to count from the end of the line N spaces.
+- s[1] selects the first character of a string.
+- s[1].toUpperCase() will make the first letter upper case.
+- var thisArray = [x, y, z] is an array called thisArray
+  with three items.
+- [array].length will return the length of an array.
+- var thisObject = {"greeting": "hello"} is an object called
+  thisObject with one attribute called greeting with a value of hello. This is refered to as the OBJECT LITERAL NOTATION.
+- thisObject.greeting will return the value of greeting.
+- thisObject["greeting"] will also return the same value. But
+  the bracket notation will allow for special characters or
+  opperations when the dot notation will not.
+- thisObject.myFunction is like the dot notation for an 
+  attribute name but in this instance the attribute can be a
+  function. The fucntion is itself an object within the object.
+- ALWAYS use === and !== for strict equality comparison (without
+  type conversion)
+- Anonymous funtions are frequently used in JS. They are functions
+  without a name. An example is below. Notice the function is in
+  the alert call and is not specifiec with a name assignment. Also
+  notice in this anonymous function that the argument is specified
+  after the function is constructed. This returnes an alert window
+  with 100 in it.
+  alert((function(x){
+    return x*x;
+  })(10));
+
+
+### JQuery ###
+
+- jQuery is just a JavaScript LIBRARY! NOT a language.
+- The $("XX") is the selector for page elements.
+  $("#header") selects the head ID
+  $(".top") selects the class called "top"
+- .append([string]) will add more data to the end of an 
+  existing DOM string.
+- .prepend([string]) will add more data to the front of an 
+  existing DOM string.
+- The $ and the jQuery object are the same thing! They are
+  both variables (objects) pointing to the jQuery function.
+  The $ is commonly used by jQuery and other lobraries as
+  a shorthand pointing to that main function. 
+- The $ or jQuery object is an array like object that
+  includes many functions/methods.
+- The $ or jQuery object can be passed string, function, or
+  DOM elements like:
+  $(string)
+  $(function)
+  $(DOM Element)
+- You can call methods directly on the jQuery object like:
+  $.ajax()
+- Selectors are strings passed into jQ that specify the 
+  id, class, or type of elements from the DOM.
+  $('tag')
+  $('.class')
+  $('#id')
+- Finding related DOM elements can be done as follows:
+  $('[thing]').parent()   = Directly above DOM element
+  $('[thing]').parents()  = All the way to the top of DOM
+  $('[thing]').children() = All Child elements
+  $('[thing]').find()     = Search down the DOM tree
+                          NOTE: Use '*' with find for find
+                          all. The arg is required.
+  $('[thing]').siblings() = All DOM objects with same parent
+- With all of the above relationship selectors you can 
+  specify criteria. For example:
+  $('[thing]').parents('#mama') = will look up the tree for
+                                  DOM element with id = mama
+- Check out http://api.jquery.com/ for the jQuery API.
+
+
+
+### JSON ###
+
+- Javascript Object Notation
+- Methodology for cleany representing data as JS object
+  tree. 
+
+
+### Special JS Code ###
+
+-----------------------------------------------------------
+- String replace for security
+
+var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
+
+var charEscape = function(_html) {
+    var newHTML = _html;
+    // How will you make sure that newHTML doesn't contain any < or > ?
+    // Your code goes here!
+    newHTML = newHTML.replace(/>/g, "&gt");
+    newHTML = newHTML.replace(/</g, "&lt");
+
+    // Don't delete this line!
+    return newHTML;
+};
+
+// Did your code work? The line below will tell you!
+console.log(charEscape(html));
+
+-----------------------------------------------------------
+- Object properties
+
+var weirdObject = {
+    "property": "Time for an astronomy lesson!",
+    "property1": "(Cameron's minor in college was astronomy)",
+    "property-2": "The 4 Galilean (largest) moons of Jupiter are:",
+    "property 3": "Io, Ganymede, Callisto, Europa",
+    "property$": "Saturn's moon Enceladus has liquid water ocean under its icy surface",
+    " property": "The Sun contains 99.87% of the mass of the entire solar system",
+    "property()": "There are 5 dwarf planets in our solar system:",
+    "property[]": "Pluto, Ceres, Eris, Haumea, Makemake",
+    "8property": "Mars has two tiny moons: Phobos and Deimos"
+};
+
+// Use console.log() to figure out if dot and/or bracket notation
+// will work to access the properties below. Mark true if you can use dot/bracket
+// notation to access the property, otherwise mark false.
+
+
+// I'll give you the first answer. The rest are set to false. Try out each property and
+// if you can use dot or bracket notation to access it, change the answer to true!
+
+// property
+var dotNotation0 = true;
+var bracketNotation0 = true;
+
+// property1
+var dotNotation1 = true;
+var bracketNotation1 = true;
+
+// property-2
+var dotNotation2 = false;
+var bracketNotation2 = true;
+
+// property 3
+var dotNotation3 = false;
+var bracketNotation3 = true;
+
+// property$
+var dotNotation4 = true;
+var bracketNotation4 = true;
+
+// *space*property
+var dotNotation5 = false;
+var bracketNotation5 = true;
+
+// property()
+var dotNotation6 = false;
+var bracketNotation6 = true;
+
+// property[]
+var dotNotation7 = false;
+var bracketNotation7 = true;
+
+// 8property
+var dotNotation8 = false;
+var bracketNotation8 = true;
+
+
+
+
+
+
+###########################################################
+Challenge Question 1
+
+We learned about relational operators and how they can classify the relationship between two values. Your job is to write the function getRelationship(x,y) function, which should return a string representing whether x is >, < or = y. For example:
+
+var rel = getRelationship(2, 3);
+console.log(rel); // <
+If one or both of the values aren't numbers, your function should output:
+
+"Can't compare relationships because [this value] and [that value] [is]/[are] not [a] number[s]."
+where [this value] and [that value] are replaced with the non-numerical values. The sentence should be grammatically correct by outputting either is or are and pluralizing number if necessary.
+
+For example:
+
+var rel1 = getRelationship("this", 2);
+console.log(rel1); // "Can't compare relationships because this is not a number"
+
+var rel2 = getRelationship("that");
+console.log(rel2) // "Can't compare relationships because that and undefined are not numbers"
+Notice in the second example, because the y value was missing, the output said that undefined was not a number.
+
+Adapted from UVa problem 11172.
+
+
+######
+My solution
+######
+
+function getRelationship(x, y) {
+    if(x === null && isNaN(x) === false){x = 'undefined';}
+    if(y === null && isNaN(y) === false){y = 'undefined';}
+    if((typeof x !== "number" || isNaN(x)) && (typeof y !== "number" || isNaN(y))) {
+        return "Can't compare relationships because " + x + " and " + y + " are not numbers";
+    }
+    else if(typeof x !== "number" || isNaN(x)){
+        return "Can't compare relationships because " + x + " is not a number";
+    }
+    else if(typeof y !== "number" || isNaN(y)){
+        return "Can't compare relationships because " + y + " is not a number";
+    }
+    else {
+        if(x > y){
+            return ">";
+        }
+        else if(x < y){
+            return "<";
+        }
+        else {
+            return "=";
+        }
+    }
+}
+
+// Try logging these functions to test your code!
+console.log(getRelationship(1,4));
+console.log(getRelationship(1,1));
+console.log(getRelationship("that",2));
+console.log(getRelationship("this"," something else"));
+console.log(getRelationship(3));
+console.log(getRelationship("hi"));
+console.log(getRelationship(NaN));
+console.log(getRelationship(NaN, undefined));
+
+######
+My SECOND solution (trying to satisfy the rubric)
+######
+
+/*
+Compare two variables and if numbers then provide their
+greater than or less than relationship. If not numbers
+then provide error.
+*/
+function getRelationship(x, y) {  
+    // Error handling
+    // Added this to satisfy the "extra functions" part of rubric
+    // This makes it more modular
+    function nonNumberError(errorType, nonNumber1, nonNumber2) {
+        var errorString = "Can't compare relationships because ";
+        if (errorType === 'single') {
+            return errorString += nonNumber1 + " is not a number";
+        }
+        else {
+            return errorString += nonNumber1 + " and " + nonNumber2 + " are not numbers";
+        }
+    }
+    
+    //Manage any missing and non-NaN variables
+    if(x === null && isNaN(x) === false){x = 'undefined';}
+    if(y === null && isNaN(y) === false){y = 'undefined';}
+    
+    // Generate warning messages for non-numbers
+    if((typeof x !== "number" || isNaN(x)) && (typeof y !== "number" || isNaN(y))) {
+        return nonNumberError('double', x, y);
+    }
+    else if(typeof x !== "number" || isNaN(x)){
+        return nonNumberError('single', x);
+    }
+    else if(typeof y !== "number" || isNaN(y)){
+        return nonNumberError('single', y);
+    }
+    // Looks like a number now provide relationship
+    else {
+        if(x > y){
+            return ">";
+        }
+        else if(x < y){
+            return "<";
+        }
+        else {
+            return "=";
+        }
+    }
+}
+
+// Try logging these functions to test your code!
+console.log(getRelationship(1,4));
+console.log(getRelationship(1,1));
+console.log(getRelationship("that",2));
+console.log(getRelationship("this"," something else"));
+console.log(getRelationship(3));
+console.log(getRelationship("hi"));
+console.log(getRelationship(NaN));
+console.log(getRelationship(NaN, undefined));
+
+###########################################################
+Challenge Question 2
+
+Twelve people have walked on the Moon. They are:
+
+Neil Armstrong
+Buzz Aldrin
+Pete Conrad
+Alan Bean
+Alan Shepard
+Edgar Mitchell
+David Scott
+James Irwin
+John W Young
+Charles Duke
+Eugene Cernan
+Harrison Schmitt
+You'll notice that these names are listed in the order that they first stepped on the Moon, not alphabetical order. To alphabetize them, it would make sense to write their names as lastname, firstname. For example: Neil Armstrong becomes Armstrong, Neil.
+
+Finish the alphabetizer(_names) function, which takes in a names array (of length N) containing strings of names and returns an alphabetized array of names in lastname, firstname format.
+
+
+######
+My solution
+######
+
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+
+function alphabetizer(names) {
+    var lastFirst = [];
+    for(var walker in names){
+        var nameArray = names[walker].split(" ");
+        if (nameArray[2]){
+            lastFirst.push(nameArray[2] + ", " + nameArray[0] + " " + nameArray[1]);
+        }
+        else {
+            lastFirst.push(nameArray[1] + ", " + nameArray[0]);
+        }      
+    }
+    
+    var sortedArray = lastFirst.sort(ingnoreCase);
+    function ingnoreCase(a,b) {
+        // alphabetical ignore case
+        if (a.toUpperCase() > b.toUpperCase()) { return 1;}
+        if (b.toUpperCase() > a.toUpperCase()) { return -1;}
+        return 0;
+    }
+    
+    for(var sorted in sortedArray) {
+        //testing
+        //console.log(sortedArray[sorted]);
+    }
+    names = sortedArray;
+
+    return names;
+}
+
+// Try logging your results to test your code!
+//console.log(alphabetizer(moonWalkers));
+
+######
+My SECOND solution (trying to satisfy the rubric)
+######
+
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+
+/* Function to take in an unsorted list of names then
+converted it to last name first and sprt it alphabetically
+ignoring the upper/lower case. Also wrote this to deal 
+with middle initials incase Mr. Young's middle initial
+shows up again.
+*/
+function alphabetizer(names) {
+    var lastFirst = [];
+    // Make last name first
+    for(var walker in names){
+        var nameArray = names[walker].split(" ");
+        // Adjust for middle initial
+        if (nameArray[2]){
+            lastFirst.push(nameArray[2] + ", " + nameArray[0] + " " + nameArray[1]);
+        }
+        // First and last only
+        else {
+            lastFirst.push(nameArray[1] + ", " + nameArray[0]);
+        }      
+    }
+    
+    //Sort the new array. Need function to ignore case.
+    var sortedArray = lastFirst.sort(ingnoreCase);
+    function ingnoreCase(a,b) {
+        // alphabetical ignore case
+        if (a.toUpperCase() > b.toUpperCase()) { return 1;}
+        if (b.toUpperCase() > a.toUpperCase()) { return -1;}
+        return 0;
+    }
+    
+    // Used while testing
+    for(var sorted in sortedArray) {
+        //console.log(sortedArray[sorted]);
+    }
+    
+    // overwrite old data
+    names = sortedArray;
+
+    // return newly sorted data
+    return names;
+}
+
+// Try logging your results to test your code!
+console.log(alphabetizer(moonWalkers));
+
+
+###########################################################
+Challenge Question 3
+
+Google's PageSpeed Insights (PSI) scores websites on their speed. A perfect score is 100 and the worst score is 0. Alongside the score, PSI provides relevant advice for improvements.
+
+By integrating an automated PSI score into a suite of front-end unit tests, you can periodically check a website's overall speed.
+
+Let's assume you're building the front-end testing framework and you make a call to the PSI API. You receive the JSON below as a response.
+
+Create a totalBytes(psiResults) function that iterates through pageStats in the psiResults object and returns the total number of bytes to load the website.
+
+Then, create a ruleList(psiResults) function that iterates through the localizedRuleNames in ruleResults and returns an array of their strings.
+
+var psiResults;
+
+psiResults = {
+ "kind": "pagespeedonline#result",
+ "id": "/speed/pagespeed",
+ "responseCode": 200,
+ "title": "PageSpeed Home",
+ "score": 90,
+ "pageStats": {
+  "numberResources": 22,
+  "numberHosts": 7,
+  "totalRequestBytes": "2761",
+  "numberStaticResources": 16,
+  "htmlResponseBytes": "91981",
+  "cssResponseBytes": "37728",
+  "imageResponseBytes": "13909",
+  "javascriptResponseBytes": "247214",
+  "otherResponseBytes": "8804",
+  "numberJsResources": 6,
+  "numberCssResources": 2
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+   "AvoidBadRequests": {
+    "localizedRuleName": "Avoid bad requests",
+    "ruleImpact": 0.0
+   },
+   ...
+   "MinifyJavaScript": {
+    "localizedRuleName": "Minify JavaScript",
+    "ruleImpact": 0.1417,
+    "urlBlocks": [
+     {
+      "header": {
+       "format": "Minifying the following JavaScript resources could reduce their size by $1 ($2% reduction).",
+       "args": [
+        {
+         "type": "BYTES",
+         "value": "1.3KiB"
+        },
+        {
+         "type": "INT_LITERAL",
+         "value": "0"
+        }
+       ]
+      },
+      "urls": [
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://code.google.com/js/codesite_tail.pack.04102009.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "717B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "1"
+          }
+         ]
+        }
+       },
+       ...
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://www.gmodules.com/ig/proxy?url\u003dhttp%3A%2F%2Fjqueryjs.googlecode.com%2Ffiles%2Fjquery-1.2.6.min.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "258B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "0"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   ...
+   "SpriteImages": {
+    "localizedRuleName": "Combine images into CSS sprites",
+    "ruleImpact": 0.0
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 11
+ }
+}
+
+
+######
+My solution
+######
+
+// Iterate through the localizedRuleNames in ruleResults and 
+// return an array of their strings.
+function ruleList(results) {
+    var returnArray = [];
+    for(var item in results.formattedResults.ruleResults) {
+        //console.log(results.formattedResults.ruleResults[item].localizedRuleName);
+        returnArray.push(results.formattedResults.ruleResults[item].localizedRuleName);
+    }
+    return returnArray;
+}
+
+// Iterate through pageStats in the psiResults object and 
+// return the total number of bytes to load the website.
+function totalBytes(results) {
+    var accumulatedBytes = 0;
+    for(var stat in results.pageStats){
+        if(stat.match(/Bytes/)) {
+            //console.log(stat);
+            accumulatedBytes = accumulatedBytes + (+results.pageStats[stat]);
+            //console.log(accumulatedBytes);
+        }
+        //else {
+            //console.log("NOT Bytes - " + stat);
+        //}
+    }
+    return accumulatedBytes;
+}
+
+// Below, you'll find a sample PS Insights JSON
+// and two console.log statements to help you test your code!
+
+psinsights = {
+ "kind": "pagespeedonline#result",
+ "id": "/speed/pagespeed",
+ "responseCode": 200,
+ "title": "PageSpeed Home",
+ "score": 90,
+ "pageStats": {
+  "numberResources": 22,
+  "numberHosts": 7,
+  "totalRequestBytes": "2761",
+  "numberStaticResources": 16,
+  "htmlResponseBytes": "91981",
+  "cssResponseBytes": "37728",
+  "imageResponseBytes": "13909",
+  "javascriptResponseBytes": "247214",
+  "otherResponseBytes": "8804",
+  "numberJsResources": 6,
+  "numberCssResources": 2
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+    "AvoidBadRequests": {
+      "localizedRuleName": "Avoid bad requests",
+      "ruleImpact": 0.0
+    },
+    "MinifyJavaScript": {
+      "localizedRuleName": "Minify JavaScript",
+      "ruleImpact": 0.1417,
+      "urlBlocks": [
+      {
+        "header": {
+       "format": "Minifying the following JavaScript resources could reduce their size by $1 ($2% reduction).",
+       "args": [
+        {
+         "type": "BYTES",
+         "value": "1.3KiB"
+        },
+        {
+         "type": "INT_LITERAL",
+         "value": "0"
+        }
+       ]
+        },
+        "urls": [
+        {
+          "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://code.google.com/js/codesite_tail.pack.04102009.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "717B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "1"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://www.gmodules.com/ig/proxy?url\u003dhttp%3A%2F%2Fjqueryjs.googlecode.com%2Ffiles%2Fjquery-1.2.6.min.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "258B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "0"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "SpriteImages": {
+    "localizedRuleName": "Combine images into CSS sprites",
+    "ruleImpact": 0.0
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 11
+ }
+};
+
+// Try logging the outputs below to test your code!
+console.log(ruleList(psinsights));
+console.log(totalBytes(psinsights));
+
+
+######
+My SECOND solution (trying to satisfy the rubric)
+######
+
+// Set this to any posative value to enable all debugging messages
+// Set to zero to disable verbose debugging
+var localDebug = 0;
+
+// DEBUG function for printing messages while writing code
+function debugToConsole(message) {
+    if (localDebug !== 0) {
+        console.log(message);
+    }
+}
+
+// Iterate through the localizedRuleNames in ruleResults and 
+// return an array of their strings.
+function ruleList(results) {
+    debugToConsole("--- STARTING ruleList function ---");
+    var returnArray = [];
+    // Collect all of the localizedRuleName values 
+    for(var item in results.formattedResults.ruleResults) {
+        debugToConsole("Fount localizedRuleName : " + results.formattedResults.ruleResults[item].localizedRuleName);
+        returnArray.push(results.formattedResults.ruleResults[item].localizedRuleName);
+    }
+    // Return the array of all localizedRuleName values
+    return returnArray;
+}
+
+// Iterate through pageStats in the psiResults object and 
+// return the total number of bytes to load the website.
+function totalBytes(results) {
+    debugToConsole("--- STARTING totalBytes function ---");
+    // Initilize count to zero
+    var accumulatedBytes = 0;
+    // Itterate over stats and add 'Bytes' values to the total
+    for(var stat in results.pageStats){
+        if(stat.match(/Bytes/)) {
+            debugToConsole("FOUND Bytes : " + stat + " so ADDING " + results.pageStats[stat]);
+            accumulatedBytes = accumulatedBytes + (+results.pageStats[stat]);
+            debugToConsole("Total thus far " + accumulatedBytes);
+        }
+        else {
+            debugToConsole("NOT Bytes : " + stat);
+        }
+    }
+    return accumulatedBytes;
+}
+
+// Below, you'll find a sample PS Insights JSON
+// and two console.log statements to help you test your code!
+
+psinsights = {
+ "kind": "pagespeedonline#result",
+ "id": "/speed/pagespeed",
+ "responseCode": 200,
+ "title": "PageSpeed Home",
+ "score": 90,
+ "pageStats": {
+  "numberResources": 22,
+  "numberHosts": 7,
+  "totalRequestBytes": "2761",
+  "numberStaticResources": 16,
+  "htmlResponseBytes": "91981",
+  "cssResponseBytes": "37728",
+  "imageResponseBytes": "13909",
+  "javascriptResponseBytes": "247214",
+  "otherResponseBytes": "8804",
+  "numberJsResources": 6,
+  "numberCssResources": 2
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+    "AvoidBadRequests": {
+      "localizedRuleName": "Avoid bad requests",
+      "ruleImpact": 0.0
+    },
+    "MinifyJavaScript": {
+      "localizedRuleName": "Minify JavaScript",
+      "ruleImpact": 0.1417,
+      "urlBlocks": [
+      {
+        "header": {
+       "format": "Minifying the following JavaScript resources could reduce their size by $1 ($2% reduction).",
+       "args": [
+        {
+         "type": "BYTES",
+         "value": "1.3KiB"
+        },
+        {
+         "type": "INT_LITERAL",
+         "value": "0"
+        }
+       ]
+        },
+        "urls": [
+        {
+          "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://code.google.com/js/codesite_tail.pack.04102009.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "717B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "1"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://www.gmodules.com/ig/proxy?url\u003dhttp%3A%2F%2Fjqueryjs.googlecode.com%2Ffiles%2Fjquery-1.2.6.min.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "258B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "0"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "SpriteImages": {
+    "localizedRuleName": "Combine images into CSS sprites",
+    "ruleImpact": 0.0
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 11
+ }
+};
+
+// Try logging the outputs below to test your code!
+console.log(ruleList(psinsights));
+console.log(totalBytes(psinsights));
+
+
+
+*
+*
+*
+*
+*
+********************************** PROJECT 3 **********************************
+*
+*
+*
+*
+*
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Object oriented JS
+
+- Lexical scope = The scope of a var and all places it is
+  accessible. RANGE OF FUNCTIONALITY.
+- New lexical scope is created each time a function is 
+  created. These can be nested and global is available to 
+  all.
+- A function can always access itself or the variable 
+  representing itself.
+- JS allows you to reference variables that are not defined.
+  Assigning a variable without var will make it global.
+- Excecution Contexts (or in-memory scopes) are built on the 
+  fly as the code runs.
+- For each execution of a function a new in-memory scope is 
+  created. For one lexical scope there may be many in-memory 
+  scopes.
+- In memory scope and in-memory Objects are very different.
+  The scope is short lived with limited access. The object 
+  is more permanet with open access.
+- Closures = Every function has access to all variables from 
+  scopes around it. A closure is any function that remains 
+  available after the outer scopes return.
+- RICH SAYS (added to notes later)
+  The "Functional Class partern" uses traditional object
+  relationships and applies properties via function calls.
+- Decorator functions are often used to augment an object to 
+  make it match a certain "class" or type of object. These
+  decorator fucntions that add properties or functionality 
+  are often named with adjectives.
+     // Decorator (adjetive name)
+     var carlike = function(){
+       obj.loc = loc;
+       obj.move = function(){
+           obj.loc++;
+       }
+       return obj;
+     };
+- Decorator functions differ from class functions in that a 
+  class function builds the object itself. A decorator takes 
+  the object in as an input.
+- Classes are typically names with proper names. Like "Car".
+- The constructor function is the function used to create an 
+  instance of a class. The constructor instantiates the object.
+     // Class (constructor function) (proper name)
+    var Car = function(loc){
+       var obj = {loc: loc;
+       obj.move = function(){
+           obj.loc++;
+       }
+       return obj;
+    };
+- When a class has multiple external (out of closure scope)
+  methods it may be useful to store all the methods inside a
+  sepperate object. This "methods" object will allow for a single
+  reference to all associated methods. 
+  NOTE: "extend" is not native to js.
+    // Class (constructor function)
+    var Car = function(loc){
+        var obj = {loc: loc;
+        extend(obj, Car.methods);
+        return obj;
+    };
+    // External functionS class includes move function
+    // The 'Car.' makes the scope specific to the Car class
+    // rather than being a global variable. It bevomes 
+    // a "Car property".
+    Car.methods = {
+       move : function(){
+           this.loc++;
+       }
+    };
+- The "class" definition is js is less strict. In js a class 
+  means any contruct that is capable of generating a fleet 
+  of object.
+- DELEGATION: The prototype object allows similar functoinality
+  to "extend" in a more efficient manner. The delegation of 
+  methods to the prototype is more efficient.
+- 'function(obj)'' is an object literal that does not allow for
+  the use of a prototype object. 'object.create' will allow 
+  setting of the prototype.
+- A completed "Prototypal Patern for a class" looks like below
+  example which is different from a "Psuedo Classical Pattern".
+    // PROTOTYPAL PATERN of a CLASS
+    // Class (constructor function)
+    var Car = function(loc){                // Function to instantiate
+      var obj = Object.create(Car.methods); // Generate instance obj
+      obj.loc = loc;
+      return obj;
+    };
+    Car.methods = {                         // Delegation to prototype
+      move : function(){                    // logic for augmenting 
+        this.loc++;                         // obj to make unique
+      }
+    };
+- The "Prototypal Patern" also uses the built in prototype 
+  propertiy on all objects. This prototype object is always 
+  found on function objects. This is a cosmetic change only
+  and does not affect the in memory model at run time.
+  This is just a easier way to implement storage of methods
+  without any additional characteristics.
+    // PROTOTYPAL PATERN of a CLASS
+    // USING the prototype PROPERTY
+    // Class (constructor function)
+    var Car = function(loc){
+        var obj = Object.create(Car.prototype);
+        obj.loc = loc;
+        return obj;
+    };
+    Car.prototype.move = function(){
+           this.loc++;
+    };
+- Prototype object have a .constructor property. This is so
+  you can figure out what contructor built an object. Example
+  Car.prototype.constructor so amy.constructor would return "Car"
+- The instanceof operator can be used to see if a prototype
+  object is anywhere in the prototpye chain. Like:
+  log(amy instanceof Car) = true.
+- The "Psuedo Classical" patern emulates other languages by 
+  adding a thin layer of syntactical convieniences.
+- The keyword new triggers the "Psudo Classical" object 
+  construction behavior. It triggers "contruction mode". It
+  adds extra code for you essentially. The keyword new is used 
+  like:
+    var amy = new Car(9);
+- A "PSeudo Classical" Example would be like:
+    // PSUEDO CLASSICAL (uses new constructor)
+    var Car = function(loc){
+        // THE BELOW LINE DOES NOT NEED TO BE CODED
+        // THIS LINE IS AUTOMATION. It appears here 
+        // just as a reminder that it is happening
+        // automatically.
+        //this = Object.create(Car.prototype);  //ref to proto
+        this.loc = loc;
+        // Same as above.
+        //return this;
+    };
+    Car.prototype.move = function(){          //proto for Car
+           this.loc++;
+    };
+- Wihtout the explanations "PSeudo Classical"
+    // PSUEDO CLASSICAL (uses new constructor)
+    var Car = function(loc){
+        this.loc = loc;
+    };
+    Car.prototype.move = function(){
+           this.loc++;
+    };
+- YOU WOULD NEVER mix Psuedo classical with prototypal
+  paterns on the same class. You either use "new" or you don't.
+- The three class patterns described are:
+   + Functional
+     *Uses the decorator functions to apply properties
+   + Prototypal
+     *Uses prototype relationships to relate the functions
+     accessible to the object.
+   + Psuedo Classical 
+     *Functionally the same as Prototypal but has syntactical
+     shortcuts and some minimal browser optimizations.
+- Superclass and subclass: Allow inheritance and reuse of 
+  class properties/functions for other similar classes.
+- CHECK OUT library.js for super and subclass examples.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+HTML5 Canvas NOTES
+
+Lesson 1
+- Canvas is a 2D surface that takes instructions and renders them.
+- Check out the steps in the first_canvas.html file.
+- Useful URLs:
+    * https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#drawImage%28%29
+    * http://www.w3.org/TR/2dcontext/#building-paths
+    * http://en.wikipedia.org/wiki/Web_colors
+    * http://diveintohtml5.info/canvas.html#text
+    * https://gist.github.com/jwill/7482ccf83ccf869f3302
+- Check out the MEME generator I created.
+
+Lesson 2
+- Attributions
+    https://archive.org/details/What_Happened_1901
+    https://archive.org/details/EdisonMotionPicturesCollectionPartOne1891-1898
+    https://archive.org/download/EdisonMotionPicturesCollectionPartOne1891-1898/1898Freight_train.mpg
+    http://www.freesound.org/people/Razzvio/sounds/79572/
+    http://www.videocopilot.net/blog/2012/11/new-tutorial-simulated-scopes/
+- Every canvas had Image data including width, hight, data.
+- Image data is stored as Uint8ClampedArray which defines the 8 bit
+  color value for every pixel. U = unsigned int8 = 8bit (0-255).
+- For most computer images an alpha (transperency) value is also included.
+- To create an empty image data array use createImageData
+- To get/set the image data use getImageData and putImageData
+
+
+//Example greyscal code:
+var c = getCanvas();
+c.width = 960;
+c.height = 540;
+var ctx = c.getContext('2d');
+
+function doIt() {
+  var imageData = ctx.getImageData(0,0, 960, 540);
+  var length = imageData.data.length / 4;
+  for (var i = 0; i < length; i++){
+      imageData.data[i * 4 + 0] = 255 - imageData.data[i * 4 + 0];   //Red
+      imageData.data[i * 4 + 1] = 255 - imageData.data[i * 4 + 1];   //Green
+      imageData.data[i * 4 + 2] = 255 - imageData.data[i * 4 + 2];   //Blue
+  }
+  // Comment this line to see original image
+  ctx.putImageData(imageData, 0, 0);
+}
+
+var image = new Image();
+image.onload = function() {
+  ctx.drawImage(image, 0, 0);
+  doIt();
+}
+image.src = 'images/image-1200.png';
+
+
+// GAME LOOP EXAMPLE
+function draw() {
+    // request to execute this function at the next earliest convenience
+    requestAnimationFrame(draw);
+    processInput();
+    moveObjectsAndEnemies();
+    drawAllTheThings();
+}
+
+//PROCESSING KEY INPUT
+var k = new Kibo();
+k.down(['up', 'w'], function() {
+    // Do something cool on the canvas
+});
+
+k.up(['enter', 'q'], function() {
+    // Do other stuff.
+});
+
+//PROCESSING MOUSE IMPUT
+var c = document.querySelector("canvas");
+
+function handleMouseClick(evt) {
+        x = evt.clientX - c.offsetLeft;
+        y = evt.clientY - c.offsetTop;
+        console.log("x,y:"+x+","+y);
+}
+c.addEventListener("click", handleMouseClick, false);
+
+// Example requestAnimationFrame
+// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
+var canvas, context;
+init();
+animate();
+function init() {
+    canvas = getCanvas();
+    context = canvas.getContext( '2d' );
+}
+function animate() {
+    requestAnimationFrame( animate );
+    draw();
+}
+function draw() {
+    var time = new Date().getTime() * 0.002;
+    var x = Math.sin( time ) * 96 + 38;
+    var y = Math.cos( time * 0.9 ) * 96 + 38;
+
+    context.fillStyle = 'rgb(245,245,245)';
+    context.fillRect( 0, 0, 255, 255 );
+    context.fillStyle = 'rgb(255,0,0)';
+    context.beginPath();
+    context.arc( x, y, 10, 0, Math.PI * 2, true );
+    context.closePath();
+    context.fill();
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+GAME PROJECT 3
+
+My notes for game project 3
+
+See the README.md for more info.
+
+######################################################################
+Project Overview
+
+You will be provided visual assets and a game loop engine; using these tools you must add a number of entities to the game including the player characters and enemies to recreate the classic arcade game Frogger.
+
+Why this Project?
+
+Games have a lot of objects and those object do a lot of different things; but sometimes those object do some very similar things as well. This creates a great opportunity to practice object-oriented programming, an important programming paradigm that influences your application architecture as well as provides performance optimizations.
+
+What will I Learn?
+
+You will learn JavaScript’s object oriented programming features to write eloquently designed classes capable of creating countless instances of similarly functioning objects. You will discover a variety of ways inheritance and delegation can be used to create well architected and performant applications.
+
+How does this Help my Career?
+
+JavaScript enables the development of complex applications on the web.
+JavaScript runs on normal web browsers, which makes it one of the most accessible and flexible programming languages.
+Complex applications that must be “broken down” into simpler entities that manage their own properties and functionality
+
+######################################################################
+How do I Complete this Project?
+
+If you need a refresher on Object Oriented JavaScript, review our course; if you'd like a more detailed explanation as to how the game engine works, see our HTML5 Canvas course.
+Download the art assets and provided game engine.
+Review the video of the completed game and take note of the game's rules.
+Review the code and comments provided in app.js
+Identify the various classes you will need to write.
+Identify and code the properties each class must have to accomplish its tasks.
+Write the functions that provide functionality to each of your class instances.
+
+https://github.com/udacity/frontend-nanodegree-arcade-game
+https://www.youtube.com/watch?v=p2JhGrrwLuQ&feature=youtu.be
+
+######################################################################
+
+Rubric
+https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
+
+Detailed Instructions:
+https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/edit?pli=1
+
+
+
+*
+*
+*
+*
+*
+********************************** PROJECT 4 **********************************
+*
+*
+*
+*
+*
+
+
+Nano Degree
+
+Website Perfromance Optimization Notes
+
+ - CRP (Critical Rendering Path) is a sequence of steps the browser goes
+   through to render a page.
+ - The CRP is DOM <-JS-> CSSOM -> Render Tree -> Layout -> Paint
+ - NOTE: Final project will include a profile that we optimize
+   with a goal of less than 100.
+ - Instructor Notes
+
+    Download and install Chrome Canary (it will not interfere with your regular Chrome)
+    On Linux, the Chromium Dev channel is similar to Canary.
+    Learn about Remote Debugging on Android with Chrome
+    
+    Why should I profile the site on my phone?
+
+    Chances are, you are developing your site on a fast laptop or a desktop machine. Mobile phones on the other hand are much more resource constrained: slower CPUs, less RAM and GPU memory, higher connection latencies, and so on. As a result, you should always try to profile and debug your site on mobile hardware to get a better and closer picture of how your users will experience your site on their handset.
+
+    What is Chrome Canary and why should I use it?
+
+    Chrome Canary is the developer version of Chrome. It looks and acts like the regular Chrome browser, but it includes new and experimental features that haven't been released yet. We recommend analyzing websites with Canary to take advantage of the latest tech. However, be warned that Canary isn't guaranteed to be stable, so expect crashes and occasional bugs.
+
+ - Mobile Debugging with Android -> Check out the P4 video. Requires 
+   android device. Not able to do this at this time (ima apple guy).
+ - Mobile Debugging with Apple -> iOS WebKit Debug Proxy: 
+   https://github.com/google/ios-webkit-debug-proxy
+ - Instructor Notes
+
+    What if I don't have a phone handy?
+
+    For a quick how-to on emulating mobile devices with Chrome Canary, see Device Mode & Mobile Emulation: https://developer.chrome.com/devtools/docs/device-mode
+
+    Mobile device emulation is demonstrated in Lesson 1 video 4: CNN’s Timeline Trace.
+
+ - DOM is built as Characters (raw text) -> Tokens (tags) -> 
+   Nodes (relationsips and content)-> DOM (fully parsed representation)
+ - Returning partial HTML can speed up page loading considerable. 
+   Incremental page loading like with google search.
+ - HTML Response -> Token -> Nodes ->DOM TREE
+ - Between start tags and end tags you may have many other tokens 
+   all forming the node.
+ - Nodes contain all relevant information about the HTML element
+ - Nodes are connected into a DOM tree based on token Hierarchy.
+ - CSSOM (CSS Object Model) is built as Characters(CSS code) -> 
+   Tokens (each chunk of css) -> Nodes (as related to DOM with 
+  enheritance [cascading]) -> CSSOM
+ - CSS must all be processed at once. You cannot break it up like HTML.
+ - CSS IS RENDER BLOCKING!!!
+ - More general CSS rules process faster.
+ - FOR MOBILE SITES always set the meta viewport like:
+   <meta name="viewport" content="width=device-width">
+   to make mobile pages match the mobile device width
+ - When page is resized the layout step has to run again.
+ - Batch updates to reduce recalling layout over and over again.
+ - GOOD TEST TOOL -- webpagetest.org
+ - HTML Rendering Overview
+  * Begin constructing the DOM by parsing the HTML
+  * Request CSS & JS resources
+  * PArse CSS and construct the CSSOM tree
+  * Execute JS
+  * Merge DOM and CSSOM into the render tree
+  * Run layout, paint
+ - JS is syncronous and will not run until CSS is available
+ - Ctrl-E then Ctrl-R to capture a reload timeline in dev tools.
+ - Minify and making inline CSS can speed up a page.
+ - Optimizing the DOM & CSSOM
+  + FOR HTML keep it as small as possible.
+  + 1 minify
+  + 2 compress
+  + 3 cache
+  + For CSS use the below strategies:
+    Split CSS for different media queries into different files. Then
+    use the below type of link statement to control when that file
+    gets involved in render blocking.
+    <link rel="stylesheet" href="style-print.css" media="print">
+  + For JavaScript use the following strategies:
+    * Start with minify, compress, cashe.
+    * Modify parser blocking scripts.
+    * Javascript is parser blocking because it blocks DOM construction
+      when a script call or inline script is encountered.
+    * So for code that is specific to one page you should try to include 
+      it inline. Only put JS in an external file when used by other pages.
+      This eliminates the need to download a file when JS is encountered 
+      in rendering.
+    * CSS blocks rendering and JS execution. JS is only executed after
+      CSSOM is completed.
+    * Use the onLoad event to load javascript not involved in the 
+      critical rendering path.
+    * The asyncronous argument will tell the browser that the JS file is
+      not a part of the critical rendering path. Use the tag like:
+      <script src="analytics.js" async></script>
+      This prevents blocking the DOM and CSSOM creation.
+    * For inline scripts they always block. With one exception! IF the 
+      inline JS is above the inline CSS then it will execute without 
+      blocking on CSS.
+ 
+ - HIGH LEVEL PLAN
+  + Minify, Compress, Cache (HTML, CSS, Javascript)
+  + Minimize use of render blocking resources (CSS)
+    1 Use media queries on <link> to unblock rendering
+    2 Inline CSS
+  + Minimize use of parser blocking resources (JS)
+    1 Defere JS execution (onLoad)
+    2 Use "async" attribute on script tag.
+ - This can be distilled to:
+  ! Minimize Bytes to download
+  ! Reduce critical resources
+  ! Shorten the Critical rendering path length.
+    + Nunmber of critical Kb [Keep files under 14Kb]
+    + Reduce the Critical rendering files/resources
+    + Reduce the number of round trips or critical path length
+
+
+*
+*
+*
+*
+*
+********************************** PROJECT 5 **********************************
+*
+*
+*
+*
+*
+
+AJAX overview
+
+AJAX = Anyncronous JavaScript And XML request
+http://api.jquery.com/jquery.ajax/
+
+- GET Request: An internet request for data. Sent from a client to a server.
+- Response: A server's response to a request. Sent from a server to a client. A response to a GET request will usually include data that the client needs to load the page's content.
+- Callback: returning to code that was on hold waiting on an asyncronous request.
+- Asyncronous results in non-blocking data resquests.
+- AJAX request minimally requires URL string.
+- Googles API list = https://developers.google.com/apis-explorer/#p/
+- Database of API = http://www.programmableweb.com/apis/directory
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 1 - Make Kitty click
+
+Project Requirements for Cat Clicker
+
+-----
+Visuals
+
+The application should display a picture of a cat and a number of clicks.
+The specifics of the layout do not matter, so style it however you'd like.
+
+-----
+Interaction
+
+The number of clicks should increment when the cat picture is clicked.
+Inspiration
+
+-----
+Resources
+
+If you're writing Cat Clicker with vanilla JS (no jQuery), you'll be adding the "click" event with elem.addEventListener(). [https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener]
+
+var elem = document.getElementById('my-elem');
+elem.addEventListener('click', function(){
+  //the element has been clicked... do stuff here
+}, false);
+
+
+If you're using jQuery, you'll be adding the "click" event listener with jQuery.click(). [http://api.jquery.com/click/]
+
+$('#my-elem').click(function(e) {
+  //the element has been clicked... do stuff here
+});
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 2 Dual kitty
+
+New Project Requirements for Cat Clicker
+
+-----
+Visuals
+
+The application should display two cats. Each cat includes
+the cat's name
+a picture of the cat
+text showing the number of clicks
+The specifics of the layout do not matter, so style it however you'd like.
+Interaction
+
+The number of clicks should increment when each cat picture is clicked.
+Inspiration
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 3 Beware of Closures
+
+Closures and Event Listeners
+The problem:
+
+Let's say we're making an element for every item in an array. When each is clicked, it should alert its number. The simple approach would be to use a for loop to iterate over the list elements, and when the click happens, alert the value of num as we iterate over each item of the array. Here's an example:
+
+// clear the screen for testing
+document.body.innerHTML = '';
+document.body.style.background="white";
+
+var nums = [1,2,3];
+
+// Let's loop over the numbers in our array
+for (var i = 0; i < nums.length; i++) {
+
+    // This is the number we're on...
+    var num = nums[i];
+
+    // We're creating a DOM element for the number
+    var elem = document.createElement('div');
+    elem.textContent = num;
+
+    // ... and when we click, alert the value of `num`
+    elem.addEventListener('click', function() {
+        alert(num);
+    });
+
+    // finally, let's add this element to the document
+    document.body.appendChild(elem);
+};
+If you run this code on any website, it will clear everything and add a bunch of numbers to the page. Try it! Open a new page, open the console, and run the above code. Then click on the numbers and see what gets alerted. Reading the code, we'd expect the numbers to alert their values when we click on them.
+
+But when we test it, all the elements alert the same thing: the last number. But why?
+
+What's actually happening
+
+Let's cut out the irrelevant code so we can see what's going on. The comments below have changed, and explain what is actually happening.
+
+var nums = [1,2,3];
+
+for (var i = 0; i < nums.length; i++) {
+
+    // This variable keeps changing every time we iterate!
+    //  It's first value is 1, then 2, then finally 3.
+    var num = nums[i];
+
+    // On click...
+    elem.addEventListener('click', function() {
+
+        // ... alert num's value at the moment of the click!
+        alert(num);
+
+        // Specifically, we're alerting the num variable 
+        // that's defined outside of this inner function.
+        // Each of these inner functions are pointing to the
+        // same `num` variable... the one that changes on
+        // each iteration, and which equals 3 at the end of 
+        // the for loop.  Whenever the anonymous function is
+        // called on the click event, the function will
+        //  reference the same `num` (which now equals 3).
+
+    });
+
+};
+That's why regardless of which number we click on, they all alert the last value of num.
+
+How do we fix it?
+
+The solution involves utilizing closures. We're going to create an inner scope to hold the value of num at the exact moment we add the event listener. There are a number of ways to do this -- here's a good one.
+
+Let's simplify the code to just the lines where we add the event listener.
+
+var num = nums[i];
+
+elem.addEventListener('click', function() {
+
+    alert(num);
+
+});
+The num variable changes, so we have to somehow connect it to our event listener function. Here's one way of doing it. First take a look at this code, then I'll explain how it works.
+
+elem.addEventListener('click', (function(numCopy) {
+    return function() {
+        alert(numCopy)
+    };
+})(num));
+The bolded part is the outer function. We immediately invoke it by wrapping it in parentheses and calling it right away, passing in num. This method of wrapping an anonymous function in parentheses and calling it right away is called an IFFE (Immediately-Invoked Function Expression, pronounced like "iffy"). This is where the "magical" part happens.
+
+We're passing the value of num into our outer function. Inside that outer function, the value is known as numCopy -- aptly named, since it's a copy of num in that instant. Now it doesn't matter that num changes later down the line. We stored the value of num in numCopy inside our outer function.
+
+Lastly, the outer function returns the inner function to the event listener. Because of the way JavaScript scope works, that inner function has access to numCopy. In the near future, num will increment, but that doesn't matter. The inner function has access to numCopy, which will never change.
+
+Now, when someone clicks, it'll execute the returned inner function, alerting numCopy.
+
+The Final Version
+
+Here's our original code, but fixed up with our closure trick. Test it out!
+
+// clear the screen for testing
+document.body.innerHTML = '';
+
+var nums = [1,2,3];
+
+// Let's loop over the numbers in our array
+for (var i = 0; i < nums.length; i++) {
+
+    // This is the number we're on...
+    var num = nums[i];
+
+    // We're creating a DOM element for the number
+    var elem = document.createElement('div');
+    elem.textContent = num;
+
+    // ... and when we click, alert the value of `num`
+    elem.addEventListener('click', (function(numCopy) {
+        return function() {
+            alert(numCopy);
+        };
+    })(num));
+
+    document.body.appendChild(elem);
+};
+ 
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 4 Kitty Clicker Premium
+
+Project Requirements for Cat Clicker Premium
+
+-----
+Visuals
+
+The application should display
+
+a list of at least 5 cats, listed by name
+an area to display the selected cat
+In the cat display area, the following should be displayed
+
+the cat's name
+a picture of the cat
+text showing the number of clicks
+The specifics of the layout do not matter, so style it however you'd like.
+Interaction
+
+When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat.
+The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked.
+Inspiration
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 5 Model View Octopus (Controller/whatever)
+
+Check out the ..nano\Front End WD\P5\ud989-pizzamvo-master files
+  AND         ..nano\Front End WD\P5\ud989-retain-master
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 6 Kitty Clicker MVO
+
+See the files at: ..nano\Front End WD\P5\ud989-cat-clicker-premium-vanilla-master
+
+Project Requirements for Cat Clicker Premium
+
+Visuals
+
+The application should display
+
+a list of cats by name
+an area to display the selected cat
+In the cat display area, the following should be displayed
+
+the cat's name
+a picture of the cat
+text showing the number of clicks
+The specifics of the layout do not matter, so style it however you'd like.
+Interaction
+
+When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat.
+The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked.
+Resources
+
+Check out the earlier reading node on how to deal with event listeners and closures. You likely will need it to get the click events for your cat list to work.
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 7 Kitty Clicker PRO
+
+See the files at: ..nano\Front End WD\P5\ud989-cat-clicker-premium-vanilla-master
+  New ones are pro_index.html & js/pro_app.js
+
+Project Requirements for Cat Clicker Premium Pro
+
+Visuals
+
+The application should display
+
+a list of cats by name
+an area to display the selected cat
+an admin button
+an admin area with inputs for changing the cat's name, url, and number of clicks (hidden by default)
+In the cat display area, the following should be displayed
+
+the cat's name
+a picture of the cat
+text showing the number of clicks
+The specifics of the layout do not matter, so style it however you'd like.
+Interaction
+
+When a cat name is clicked in the list, the cat display area should update to show the data for the selected cat.
+The number of clicks in the cat area should be unique to each cat, and should increment when the cat's picture is clicked.
+When the admin button is clicked, the admin area should appear with the inputs filled in for the currently-selected cat.
+When the cancel button in the admin area is pressed, the admin area disappears.
+When the save button in the admin area is pressed, the currently-selected cat's values update with the values in the admin area, and the admin area disappears.
+
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 8 REdesighn attendance app
+
+Made notes in files. Did not complete the excercise all the way.
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 9 Resume Rebuild With Seperation of Concerns
+
+I'm going to go back to this later. Pushing to finish project 5 right now.
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 10 Knockout JS (Organizational Model)
+
+ViewModel: Knockout's ViewModel is similar to the Octopus. It separates the Model and the View
+
+Declarative Bindings: Bindings allow you to connect the View and Model in a direct and simple way.
+
+Automatic UI Refresh: Knockout's will update the View when the Model changes. And with the right declarative bindings, Knockout can update the Model when elements in the View change (such as input elements, checkboxes, etc).
+
+Dependency Tracking: Knockout allows you to create a relationship between parts of the Model, and will automatically update Model data that depends on other Model data when that other Model data changes.
+
+KnockoutJS - http://knockoutjs.com/
+
+- Observables = KO objects including data and functions related to that data
+- Create new observable:
+  var myNum = ko.observable(5);
+  mynum is an object and a function both.
+- ObservableArray is how you create a KO array. (each value in the array is not tracked by default. Only the array element itself)
+- Console example:
+  ko ** Returns object/function 
+  ko.observableArray([1,2,3]) ** Returns array object/function
+  var foo = ko.observableArray([1,2,3]) ** Creates var representing obj/function 
+  console.dir(foo) ** Displays layout of object/function (properties etc)
+  foo ** returns function
+  jQuery ** behaves same way
+  foo() ** runs function to return value
+  foo.push ** Adds properties to the object (new array element)
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 11 Cat Clicker with Knockout JS (Organizational Model)
+
+Fill in the app model data and the needed data for using the KO model.
+
+Files at ..nano\Front End WD\P5\ud989-cat-clicker-ko-starter-master\
+
+
+##########################################################################
+##########################################################################
+##########################################################################
+*** Step 12 Other Organizational Models
+
+See video and lesson materials.
+
+
+
+
+READY FOR PROJECT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*
+*
+*
+*
+*
+********************************** PROJECT 6 **********************************
+*
+*
+*
+*
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+****** Everything between these headers is from the Nano Degree courses *******
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+
+
+
+
+
+
+

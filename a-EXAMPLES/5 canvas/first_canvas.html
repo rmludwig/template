@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+</head>
+<body>
+    <!-- make a canvas -->
+    <canvas id="c" width="500" height="500"></canvas>
+    <script>
+        // select the canvas
+        var c = document.querySelector("#c");
+        // get the ctx or context
+        var ctx = c.getContext("2d");
+
+        /* STEP 8 - MAKE A MEME */
+        // create image instance addind meme text
+        var image = new Image();
+        image.src = "img/School_Bus_-_Cartoon_4.jpg";
+        image.onload = function(){
+            console.log("load image");
+            ctx.drawImage(image, 0, 0, c.width, c.height);
+
+            ctx.strokeStyle = "#000";
+            ctx.fillStyle = "#FFF";
+            ctx.lineWidth = "3";
+            ctx.font = "36pt Impact";
+            ctx.textAlign = "center";
+            ctx.fillText("CANVAS MEMES", c.width /2, 400);
+            ctx.strokeText("CANVAS MEMES", c.width /2, 400);
+        }
+        /**/
+
+        /* STEP 7 
+        // hollow outline of rectangle
+        ctx.strokeStyle = "#33CC33";
+        ctx.strokeRect(50, 50, 100, 100);
+
+        //draw triangle with the canvas
+        ctx.beginPath();
+        ctx.moveTo(75, 75);
+        ctx.lineTo(125, 75);
+        ctx.lineTo(125, 125);
+        ctx.lineTo(50, 50);
+        ctx.fillStyle = "blue";
+        ctx.fill(); 
+
+        // add some writing
+        ctx.fillText("HELLO CANVAS", 50, 10);
+        */
+        
+
+        /*STEP 6
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0,0,50,50);
+
+        // Save state with blue fill
+        ctx.save();
+        ctx.fillStyle = "green";
+        ctx.fillRect(100,100,10,10);
+        // Restore to blue fill
+        ctx.restore();
+
+        ctx.fillRect(200,10,20,20);
+        */
+
+        /* STEP 5 - Practice 
+        // hollow outline of rectangle
+        ctx.strokeRect(50, 50, 100, 100);
+
+        //draw triangle with the canvas
+        ctx.beginPath();
+        //put the "pen tip" somewhere
+        ctx.moveTo(75, 75);
+        ctx.lineTo(125, 75);
+        ctx.lineTo(125, 125);
+        ctx.lineTo(50, 50);
+        ctx.fillStyle = "#33CC33";
+        ctx.fill(); // fill in the shape  
+        */
+
+        /*
+        ##Scaling
+
+        scale(x,y) multiplies the x and y values by a given factor so
+
+        ctx.scale(2,3);
+
+        will make all values twice as large on the x axis and three times as large on the y axis.
+
+        ##Translation
+
+        translate(x,y) moves all subsequent draw commands by x number of pixels on horizontally and y pixels vertically.
+
+        ctx.translate(20,40); moves all elements drawn after it 20 pixels to the rights and 40 pixels down.
+
+        ##Rotation
+
+        ctx.rotate(angleRadians) rotates an object a certain number of radians (generally) about its center. You probably may have learned about radians in school but here's a handy formula to convert a value from degrees to radians.
+
+        radians = degrees * (Math.PI/180)   
+        */
+
+        /* STEP 4 
+        // solid filled rectangle
+        ctx.fillRect(100, 100, 100, 100);
+
+        // hollow outline of rectangle
+        ctx.strokeRect(50, 50, 50, 50);
+
+        //draw with the canvas
+        //begin path means draw a new shape
+        ctx.beginPath();
+        //put the "pen tip" somewhere
+        ctx.moveTo(10, 10);
+        // line to draws a line
+        ctx.lineTo(50, 50);
+        ctx.lineTo(50, 10);
+        ctx.lineTo(10, 10);
+        //ctx.fill(); // fill in the shape
+        ctx.stroke(); // draw the shape with hollow inside
+        */
+
+
+        /* STEP 3
+        ctx.fillStyle = "blue";
+        // Start at (0,0) and draw a 50px x 50px blue rectangle.
+        ctx.fillRect(0,0,50,50);
+        // Start at (0,0) and clear a 25px x 25px rectangle.
+        ctx.clearRect(0,0,25,25);
+
+        // clear after timeout
+        setTimeout(function(){ctx.clearRect(0, 0, c.width, c.height);},2000);
+        */
+
+        /* STEP 2 
+        // solid filled rectangle
+        ctx.fillRect(100, 100, 100, 100);
+
+        // hollow outline of rectangle
+        ctx.strokeRect(50, 50, 50, 50);
+        */
+
+        /* STEP 1
+        // create image instance
+        var image = new Image();
+
+        // loading images is asyncronous, so need to do
+        // something when image loads
+        image.onload = function(){
+            // keep track of what it's doing
+            console.log("load image");
+            //draw the image in the same space as the canvas
+            ctx.drawImage(image, 0, 0, c.width, c.height);
+            //text string representing the image
+            var savedImage = c.toDataURL();
+            //open new image in new window
+            // NEVER DID GET PAST tainted canavas error
+            window.open(savedImage);
+        }
+
+        // set image source (src is built in attribute)
+        image.src = "img/School_Bus_-_Cartoon_4.jpg";
+        */
+    </script>
+
+</body>
+</html>

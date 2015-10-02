@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PAGE TITLE</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:100,300,400' rel='stylesheet' type='text/css'></link>
+    <link href="css/style.css" rel="stylesheet" type="text/css"></link>
+    <style>
+        body {
+            background-color: #BBBBBB;
+        }
+        .w100 {
+            width: 100%;
+            clear: both;
+        }
+        .w33 {
+            width: 33%;
+            float: left;
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+        .center {
+            text-align: center;
+        }
+        /* Add CSS here when possible */
+    </style>
+</head>
+
+<body>
+    <div class="w100">
+        <div class="center">
+            <h1>Example Using Bootstrap and Knockout</h1>
+        </div>
+    </div>
+    <div class="w100">
+        <div class="left">
+            <h3>Update HTML As needed</h3>
+        </div>
+        <div class="right">
+            <h3>Right Side</h3>
+        </div>
+    </div>
+    <div class="w100" id="oneThirdContainer" data-bind="foreach: componentList">
+        <div class="w33 center">
+            <img data-bind="attr: {src: imgSrc}" data-toggle="modal" />
+            <h2 class="text-uppercase" data-bind="text: title"></h2>
+            <p><span data-bind="text: comment"></span></p>
+        </div>
+    </div>
+    <div class="w100">
+        <div>
+            <ul data-bind="foreach: componentList">
+                <li>
+                    <h2 data-bind="text: title"></h2>
+                    <p>Comment: <input data-bind="value: comment, valueUpdate='afterkeydown'" /></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w100">
+        <div>
+            <h2>Static Sized Kitty</h2>
+            <img src="image/main.jpg" alt="kitty" />
+        </div>
+    </div>
+
+    <!-- Add JS library and app specific JS after body -->
+    <script src="js/lib/knockout-3.2.0.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+<script>
+    // When needed add post html scripting here 
+</script>
